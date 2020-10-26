@@ -1,0 +1,128 @@
+:root{
+    --primary: orange;
+    --dark: rgb(51, 48, 43);
+    --light: rgb(231, 161, 29);
+    --shadow: 0 1px 5px rgb(36,18,51);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: var(--primary);
+    margin: 30px;
+    line-height: 1.4;
+}
+.btn{
+    background: var(--dark);
+    color: var(--primary);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.container{
+    display: grid;
+    grid: 20px;
+}
+nav ul{
+    display: grid;
+    gap: 20px;
+    list-style: none;
+    grid-template-columns: repeat(4,1fr);
+}
+nav a{
+    text-decoration: none;
+    background: var(--light);
+    display: block;
+    padding: 0.8rem;
+    text-align: center;
+    color: var(--dark);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow);
+    transition: all(0.3s);
+}
+nav a:hover{
+    background: var(--dark);
+    color:var(--light);
+    transform: translateY(-3px);
+    transform: scale(1.1);
+}
+nav a:active{
+    transform: translateY(3px) scale(1);
+}
+.main-container{
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+    "showcase showcase top-box-a"
+    "showcase showcase top-box-b";
+}
+.showcase{
+    min-height: 400px;
+    background: url('..img/1.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    grid-area: showcase;
+}
+@media (max-width: 768px){
+    body{
+        margin: 0;
+    }
+    nav ul{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+    .main-container{
+        grid-template-areas: 
+        "showcase showcase"
+        "top-box-a top-box-b";
+    }
+}
+@media (max-width: 550px){
+    nav ul{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    nav a{
+        font-size: 1rem;
+        padding: 0.3rem;
+    }
+    nav a:nth-child(odd){
+        background: 
+    }
+}
+
+.showcase h1{
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+.top-box{
+    background: var(--light);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.top-box-a{
+    grid-area: top-box-a;
+}
+.top-box-b{
+    grid-area: top-box-b;
+}
+.text-box-a{
+    grid-area: text-box-a;
+}
+.text-box-b{
+    grid-area: text-box-b;
+}
